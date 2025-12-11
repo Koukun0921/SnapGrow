@@ -1,0 +1,22 @@
+// ==========================================================================
+// Object - Project - App
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+@use '../../foundation/mixin' as *;
+
+.p-app {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: $padding-sp;
+  text-align: center;
+  
+  @include mq("md") {
+    max-width: $inner;
+    padding: $padding-pc;
+  }
+}
+
+.p-read-the-docs {
+  color: #888;
+}

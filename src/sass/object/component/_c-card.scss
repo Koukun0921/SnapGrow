@@ -1,0 +1,15 @@
+// ==========================================================================
+// Object - Component - Card
+// ==========================================================================
+
+@use '../../foundation/variables' as *;
+@use '../../foundation/mixin' as *;
+@use '../../foundation/functions' as *;
+
+.c-card {
+  padding: $padding-sp;
+  
+  @include mq("md") {
+    padding: $padding-pc;
+  }
+}

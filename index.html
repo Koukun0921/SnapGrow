@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 電話番号の自動検出と変換を無効にする -->
+    <meta name="format-detection" content="telephone=no" />
+    <title>コーディング効率化講座</title>
+    <meta name="description" content="トップページの説明" />
+    <meta name="keywords" content="キーワード" />
+    <!-- ogp -->
+    <meta property="og:title" content="サイト名" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="サイトのドメイン" />
+    <meta property="og:image" content="OGP IMAGE" />
+    <meta property="og:site_name" content="サイトのドメイン" />
+    <meta property="og:description" content="トップページの説明" />
+    <!-- ファビコン -->
+    <link rel="icon" type="image/svg+xml" href="" />
+    <link rel="apple-touch-icon" href="" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    {{> header}}
+    <!-- サンプルです -->
+    <h1 class="c-title">Hello World.</h1>
+    <div class="container">
+      <button id="button" class="c-btn">Click me!</button>
+    </div>
+
+    {{> footer}}
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

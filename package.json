@@ -1,0 +1,21 @@
+{
+  "name": "package",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "scss:index": "node ./scripts/generate-scss-index.mjs",
+    "predev": "npm run scss:index",
+    "dev": "vite",
+    "prebuild": "npm run scss:index",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "sass": "^1.94.2",
+    "vite-plugin-handlebars": "^2.0.0"
+  }
+}

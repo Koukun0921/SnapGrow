@@ -1,0 +1,15 @@
+// ==========================================================================
+// Foundation - Mixin
+// ==========================================================================
+
+@use "sass:math";
+@use "sass:map";
+@use 'variables' as *;
+
+// メディアクエリミックスイン
+@mixin mq($breakpoint) {
+  @media #{map.get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
