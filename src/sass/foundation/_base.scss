@@ -2,9 +2,9 @@
 // Foundation - Base
 // ==========================================================================
 
-@use 'variables' as *;
-@use 'mixin' as *;
-@use 'functions' as *;
+@use "variables" as *;
+@use "mixin" as *;
+@use "functions" as *;
 
 // レスポンシブフォントサイズ設定
 html {
@@ -13,17 +13,14 @@ html {
     @media (max-width: 375px) {
       font-size: vw(375, strip-unit($base-font-size));
     }
-
     // 375px〜767px
     & {
       font-size: $base-font-size;
     }
-
     // 768px〜inner
     @include mq("md") {
       font-size: vw(strip-unit($inner), strip-unit($base-font-size));
     }
-
     // inner以上
     @media (min-width: $inner) {
       font-size: $base-font-size;
@@ -31,17 +28,14 @@ html {
   } @else {
     // inner以上
     font-size: $base-font-size;
-
     // 768px〜inner
     @media (max-width: $inner) {
       font-size: vw(strip-unit($inner), strip-unit($base-font-size));
     }
-
     // 375px〜767px
     @include mq("md") {
       font-size: $base-font-size;
     }
-
     // 375px以下
     @media (max-width: 375px) {
       font-size: vw(375, strip-unit($base-font-size));
@@ -53,6 +47,8 @@ body {
   font-family: $font-family-base;
   font-weight: $regular;
   color: $color-black;
+  letter-spacing: 0;
+  line-height: 1.4;
   background-color: $color-white;
   display: flex;
   flex-direction: column;
@@ -68,20 +64,6 @@ body.is-fixed {
 
 // ホバー対応（タッチデバイスでは無効化）
 @media (hover: hover) {
-  a:hover {
-    @if $break-flg == 0 {
-      @include mq("md") {
-        opacity: 0.8;
-        cursor: pointer;
-      }
-    } @else {
-      opacity: 0.8;
-      cursor: pointer;
-      @include mq("md") {
-        opacity: 1;
-      }
-    }
-  }
 }
 
 main {
@@ -94,32 +76,29 @@ a {
   transition: opacity 0.3s;
 }
 
+a:hover {
+  @if $break-flg == 0 {
+    @include mq("md") {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  } @else {
+    opacity: 0.7;
+    cursor: pointer;
+    @include mq("md") {
+      opacity: 1;
+    }
+  }
+}
+
 // タイポグラフィ
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 1.4;
 }
 
-// ベース要素
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  
-  &:hover {
-    border-color: #646cff;
-  }
-  
-  &:focus,
-  &:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
+p {
+  letter-spacing: $text-space;
 }
 
 // メディアクエリ（ダークモード対応）
@@ -128,11 +107,11 @@ button {
     color: #213547;
     background-color: #ffffff;
   }
-  
+
   a:hover {
     color: #747bff;
   }
-  
+
   button {
     background-color: #f9f9f9;
   }

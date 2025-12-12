@@ -2,18 +2,18 @@
 
 このテンプレートを新しい案件で使用する際の具体的な手順です。
 
-## ステップ1: テンプレートのコピー
+## ステップ 1: テンプレートのコピー
 
-### 方法A: フォルダをコピー（推奨）
+### 方法 A: フォルダをコピー（推奨）
 
 1. このテンプレートフォルダ全体をコピー
 2. 新しい案件名にリネーム
 3. 以下のファイル・フォルダを削除：
    - `node_modules/`（再インストールするため）
    - `dist/`（ビルド成果物）
-   - `.git/`（既存のGit履歴がある場合）
+   - `.git/`（既存の Git 履歴がある場合）
 
-### 方法B: Gitでクローン（Git管理する場合）
+### 方法 B: Git でクローン（Git 管理する場合）
 
 ```bash
 # テンプレートをリモートリポジトリにプッシュ済みの場合
@@ -21,9 +21,9 @@ git clone <テンプレートのリポジトリURL> my-new-project
 cd my-new-project
 ```
 
-## ステップ2: 初期設定
+## ステップ 2: 初期設定
 
-### 1. package.jsonの更新
+### 1. package.json の更新
 
 ```json
 {
@@ -42,32 +42,34 @@ npm install
 ### 3. 基本情報の更新
 
 #### `index.html`
+
 - `<title>`: サイトタイトル
 - `<meta name="description">`: サイト説明
 - `<meta name="keywords">`: キーワード
-- OGP設定（`og:title`, `og:description`, `og:image`など）
+- OGP 設定（`og:title`, `og:description`, `og:image`など）
 - ファビコンのパス
 
 #### `src/sass/foundation/_variables.scss`
+
 最低限変更すべき項目：
 
 ```scss
 // フォント設定
-$font-family-base: 'Noto Sans JP', sans-serif;  // ← プロジェクトのフォントに変更
+$font-family-base: "Noto Sans JP", sans-serif; // ← プロジェクトのフォントに変更
 
 // カラーパレット
-$color-black: #333;      // ← プロジェクトのカラーに変更
-$color-theme: #2589d0;   // ← プロジェクトのテーマカラーに変更
+$color-black: #333; // ← プロジェクトのカラーに変更
+$color-theme: #2589d0; // ← プロジェクトのテーマカラーに変更
 $color-white: #fff;
 
 // コンテナ幅
-$inner: 1200px;  // ← プロジェクトの最大幅に変更
+$inner: 1200px; // ← プロジェクトの最大幅に変更
 
 // SP/PCファースト
-$break-flg: 0;  // 0: SPファースト、1: PCファースト
+$break-flg: 0; // 0: SPファースト、1: PCファースト
 ```
 
-## ステップ3: サンプルファイルの削除
+## ステップ 3: サンプルファイルの削除
 
 以下のサンプルファイルは削除または置き換えてください：
 
@@ -87,7 +89,7 @@ src/sass/object/project/
   - _p-sample-text.scss ← 不要なら削除
 ```
 
-## ステップ4: 開発開始
+## ステップ 4: 開発開始
 
 ```bash
 # 開発サーバー起動
@@ -96,9 +98,9 @@ npm run dev
 
 ブラウザで `http://localhost:5173` を開いて確認。
 
-## ステップ5: プロジェクト固有の設定
+## ステップ 5: プロジェクト固有の設定
 
-### 追加のHTMLページがある場合
+### 追加の HTML ページがある場合
 
 `vite.config.js` を編集：
 
@@ -114,9 +116,9 @@ build: {
 },
 ```
 
-### 追加のHandlebarsパーツ
+### 追加の Handlebars パーツ
 
-`partials/` ディレクトリに新しいHTMLファイルを追加し、`index.html` で使用：
+`partials/` ディレクトリに新しい HTML ファイルを追加し、`index.html` で使用：
 
 ```html
 <!-- partials/navigation.html -->
@@ -129,8 +131,8 @@ build: {
 
 <!-- index.html -->
 <body>
-  {{> header}}
-  {{> navigation}}  <!-- 追加 -->
+  {{> header}} {{> navigation}}
+  <!-- 追加 -->
   <main>コンテンツ</main>
   {{> footer}}
 </body>
@@ -156,12 +158,11 @@ build: {
 
 ## よくある質問
 
-**Q: 既存のCSSファイルがある場合は？**
+**Q: 既存の CSS ファイルがある場合は？**
 A: `src/sass/object/project/` に移行するか、`src/sass/main.scss` に直接インポートしてください。
 
 **Q: 画像ファイルはどこに置く？**
 A: `public/` ディレクトリに配置します。`/image.jpg` のようにルートパスで参照できます。
 
-**Q: JavaScriptファイルはどこに置く？**
+**Q: JavaScript ファイルはどこに置く？**
 A: `src/` ディレクトリに配置し、`src/main.js` からインポートします。
-

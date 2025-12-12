@@ -1,12 +1,8 @@
-// ==========================================================================
-// Foundation - Variables
-// ==========================================================================
-
 @use "sass:math";
 
 // ブレイクポイントの設定
 // ＊＊＊＊＊SP・PCファーストについて、この設定を変更します＊＊＊＊＊
-$break-flg: 0 !default; // 0: SPファースト、1: PCファースト
+$break-flg: 1 !default; // 0: SPファースト、1: PCファースト
 
 $breakpoints: null;
 @if $break-flg == 0 {
@@ -17,7 +13,6 @@ $breakpoints: null;
     "xl": "screen and (min-width: 1200px)",
   );
 } @else {
-  // ブレイクポイントの設定（PCファースト）
   $breakpoints: (
     "sm": "screen and (max-width: 399px)",
     "md": "screen and (max-width: 767px)",
@@ -30,24 +25,32 @@ $breakpoints: null;
 $inner: 1200px;
 
 // 余白
-$padding-pc: 25px; // PC用余白設定
-$padding-sp: 20px; // スマホ用余白設定
+$padding-pc: 25px;
+$padding-sp: 16px;
 
 // フォント
-$font-family-base: system-ui, Avenir, Helvetica, Arial, sans-serif; // ベースフォント設定
+$font-family-base: "Noto Sans JP", sans-serif;
+$font-family-en: "Inter", sans-serif;
 
+$light: 300;
 $regular: 400;
 $medium: 500;
-$semi-bold: 600;
-$bold: 700;
-$extra-bold: 800;
+
+// 文字間隔
+$text-space: 0.1em;
 
 // ベースフォントサイズ
 $base-font-size: 16px;
 
 // Color
-$color-black: #333;
-$color-red: #e00;
-$color-theme: #2589d0;
-$color-white: #fff;
-
+// メインカラー
+$color-white: #ffffff;
+$color-gray: #f5f5f5;
+$color-beige: #f6efe7;
+// サブカラー
+$color-sub-gray: #afafaf;
+$color-sub-brown: #ccb7a3;
+// テキストカラー（仮）
+$color-black: #000000;
+// アクセントカラー
+$color-accent: #ffb77a;
